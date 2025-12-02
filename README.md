@@ -1,53 +1,145 @@
-# Minecraft Agent Framework
+# MINECRAFT AGENT FRAMEWORK
+
 [![codecov](https://codecov.io/github/TyrkerS/Axies/graph/badge.svg?token=I1GK59EB31)](https://codecov.io/github/TyrkerS/Axies)
-Este proyecto implementa un marco de trabajo en Python que permite el desarrollo y ejecución de agentes 
-programados para interactuar con un servidor compartido de Minecraft. 
-Los agentes pueden moverse, interactuar con el entorno, construir y destruir bloques, y enviar o recibir 
-mensajes del chat.
 
-## Objetivo del Proyecto
-El objetivo principal es proporcionar un framework extensible para crear agentes personalizados en Minecraft
-que demuestren los conceptos de:
-- **Programación funcional.**
-- **Programación reflexiva.**
+## ⭐ Project Summary
+This project implements a **Python-based framework** for creating, controlling, and testing autonomous agents inside **Minecraft**.  
+It provides a full environment for running behaviours, interacting with a Minecraft server, logging actions, and developing custom AI agents using Python.
 
-# Características Principales
+The framework includes a ready‑to‑run Minecraft server, example agent code, and a modular architecture to define actions, goals, and behaviours. It was originally built for educational and experimentation purposes in game AI.
 
-- **Interacción con Minecraft:** Los agentes pueden comunicarse 
-con el entorno y los jugadores a través de la API de Minecraft Pi Edition (`mcpi`).
-- **Agentes personalizables:** Incluye ejemplos de agentes con diferentes funcionalidades, 
-como `InsultBot`, `TNTBot`, `OracleBot` y `ChatBot`.
-- **Extensibilidad:** El framework está diseñado para facilitar la creación de nuevos agentes 
-mediante la clase base `Agent`.
-- **Pruebas unitarias:** El proyecto incluye pruebas para asegurar la funcionalidad de cada agente.
-- **Cobertura del código:** Integra un badge de GitHub Actions para verificar la cobertura de las pruebas.
+---
 
-## Agentes Disponibles
+## 🧩 Technologies & Skills Demonstrated
 
-### 1. `Agent`
-Clase base que define las funcionalidades comunes de los agentes:
-- **Métodos dinámicos:** Listar y ejecutar métodos disponibles del agente.
-- **Gestión de atributos:** Obtener y configurar atributos dinámicamente.
-- **Control del ciclo de vida:** Iniciar y detener la ejecución del agente en hilos separados.
+### **Artificial Intelligence / Agent Systems**
+- Behaviour-driven agents  
+- Perception–action loop  
+- Autonomous decision-making  
+- State-based and rule-based behaviours  
 
-### 2. `ChatBot`
-Responde preguntas en el chat utilizando la API de OpenAI.
-- **Función principal:** Procesa entradas con el prefijo `chatbot:` y responde utilizando un modelo de lenguaje.
+### **Python Development**
+- Modular code architecture  
+- Class-based agent design  
+- Logging, debugging and event callbacks  
+- Testing environment with `pytest`  
+- Clear project packaging and script handling  
 
-### 3. `InsultBot`
-Envía insultos aleatorios al chat a intervalos regulares.
-- **Configuración:** Permite ajustar el intervalo de tiempo entre insultos.
+### **Minecraft Integration**
+- Communication between Python and a Minecraft server  
+- Execution of agent actions in real time  
+- Server automation through scripts (`StartServer.bat`)  
 
-### 4. `OracleBot`
-Responde preguntas en el chat con respuestas predefinidas o aleatorias.
-- **Función principal:** Responde a mensajes con el prefijo `oracle:` usando programación funcional para procesar eventos.
+---
 
-### 5. `TNTBot`
-Genera bloques de TNT cerca del jugador y los activa.
-- **Función principal:** Coloca TNT en posiciones generadas dinámicamente cerca del jugador.
+## 📁 Project Structure
+```
+AdventuresInMinecraft/
+│
+├── MyAdventures/                  → Python source code for agents and behaviours
+│   ├── agent.py                   → Base agent class
+│   ├── behaviours.py              → Behaviour definitions
+│   ├── world.py                   → World interaction utilities
+│   └── ...
+│
+├── Server/                        → Ready-to-run Minecraft server
+│
+├── StartServer.bat                → Script to launch the server on Windows
+│
+├── requirements.txt               → Python dependencies
+├── pytest.ini                     → Testing configuration
+├── .coveragerc / .coverage        → Coverage settings and output
+└── README.md                      → Original project documentation
+```
 
+### Design Philosophy
+- **Modular:** All agent components are separated into behaviours, actions, and world logic.  
+- **Educational:** Built to teach agent design inside a real game engine.  
+- **Extendable:** You can easily create your own agent by subclassing the base classes.  
+- **Reproducible:** Includes full server, configs, and tests to run experiments consistently.
 
-## Pruebas
+---
 
-Las pruebas unitarias están incluidas en el directorio `tests/` 
-y cubren las funcionalidades principales de los agentes.
+## 🔍 Project Details
+
+### **1. Agent Logic**
+Agents follow a classical AI loop:
+1. Observe the Minecraft world  
+2. Decide what action to perform  
+3. Execute the action in the environment  
+4. Log the behaviour
+
+Built‑in tools allow agents to:
+- move
+- mine blocks
+- interact with world objects
+- follow scripted or autonomous goals
+
+---
+
+### **2. Behaviour System**
+Behaviours are defined in `behaviours.py` and can include:
+- wandering  
+- item gathering  
+- survival behaviours  
+- goal-oriented actions  
+
+The system is fully extensible.
+
+---
+
+### **3. World Interaction**
+`world.py` provides high‑level functions to:
+- detect entities  
+- read blocks  
+- modify or query the environment  
+- send commands to the Minecraft server  
+
+The agent does not interact directly with the server — instead it uses an abstraction layer for safety and clarity.
+
+---
+
+### **4. Testing**
+The project includes:
+- `pytest` test suite  
+- coverage configuration  
+- testable agent behaviours  
+
+This ensures agents can be validated automatically.
+
+---
+
+## ▶️ How to Run the Project
+
+### **1. Install dependencies**
+```
+pip install -r requirements.txt
+```
+
+### **2. Start the Minecraft server**
+On Windows:
+```
+StartServer.bat
+```
+
+Alternatively, run the server inside the `Server/` directory manually.
+
+### **3. Run the Python agent framework**
+Inside `MyAdventures/`, run your agent:
+```
+python my_agent_script.py
+```
+
+Example agents can be found inside the same directory.
+
+### **4. Run tests**
+```
+pytest
+```
+
+---
+
+## ✔ Summary
+This project provides a complete **Python AI agent framework for Minecraft**, including a dedicated server, behaviour system, and tools for world interaction.  
+It demonstrates concepts in agent-based AI, Python architecture, and applied simulation inside a videogame environment — ideal for experimentation, teaching, or extending with custom behaviours.
+
