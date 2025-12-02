@@ -5,7 +5,7 @@ from MyAdventures.agents.Agent import Agent
 from MyAdventures.mcpi import minecraft
 
 # Configuración de la API Key
-GOOGLE_API_KEY = "AIzaSyDMur7u2uhnNE9awl7MJ2tiZvO2CquWF6k"
+GOOGLE_API_KEY = ""    # PON TU API KEY DE GOOGLE PARA QUE FUNCIONE CORRECTAMENTE
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Función para formatear texto (opcional)
